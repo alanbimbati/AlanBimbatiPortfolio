@@ -3,7 +3,17 @@
 import { CyberButton } from "@/components/ui/CyberButton";
 import { motion } from "framer-motion";
 
-const projects = [
+type Project = {
+    title: string;
+    description: string;
+    link: string;
+    glowColor: "orange" | "green";
+    btnText: string;
+    image?: string;
+    video?: string;
+};
+
+const projects: Project[] = [
     {
         title: "Ortix",
         description: "Un orticello digitale, una wiki personale dove porto tutta la mia conoscenza gratuitamente verso la sovranità digitale e Bitcoin.",
@@ -43,6 +53,14 @@ const projects = [
         glowColor: "orange" as const,
         btnText: "Scrivimi su Telegram",
         image: "/images/ReferenteEduVerona.png"
+    },
+    {
+        title: "Barattolo",
+        description: "Il mercatino decentralizzato in satoshi su Nostr: compra e vendi oggetti pagando direttamente in Bitcoin, senza intermediari né censura.",
+        link: "https://barattolo.store/",
+        glowColor: "orange" as const,
+        btnText: "Visita Barattolo",
+        video: "/images/Barattolo.mp4"
     }
 ];
 
@@ -71,11 +89,22 @@ export const ProjectsSection = () => {
                                 className="w-full md:w-1/2 aspect-video bg-white/5 border border-white/10 rounded-xl overflow-hidden relative flex items-center justify-center group"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 group-hover:from-black/40 transition-colors" />
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="object-cover w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                                />
+                                {project.video ? (
+                                    <video
+                                        src={project.video}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="object-cover w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                    />
+                                ) : (
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="object-cover w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                    />
+                                )}
                             </motion.div>
 
                             {/* Content */}

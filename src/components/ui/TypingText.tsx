@@ -15,14 +15,13 @@ export const TypingText = ({ text, className, delay = 0, speed = 50 }: TypingTex
     const [displayedText, setDisplayedText] = useState("");
 
     useEffect(() => {
-        setDisplayedText("");
         let currentIndex = 0;
         let timeoutId: NodeJS.Timeout;
 
         const startTyping = () => {
             timeoutId = setInterval(() => {
                 if (currentIndex < text.length) {
-                    setDisplayedText(text.slice(0, currentIndex + 1));
+                    setDisplayedText((prev) => prev + text[currentIndex]);
                     currentIndex++;
                 } else {
                     clearInterval(timeoutId);

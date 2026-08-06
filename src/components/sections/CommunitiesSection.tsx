@@ -11,7 +11,7 @@ const communities = [
         description: "Una community dedicata ai videogiochi con un bot di intrattenimento integrato per tenere viva la chat e coinvolgere la community in modo divertente e automatico.",
         link: "https://t.me/aROMaDiVideogiochi",
         glowColor: "green" as const,
-        image: "/images/aromadivideogiochi.png",
+        emoji: "🎮",
     },
     {
         name: "FunzioGram",
@@ -19,7 +19,7 @@ const communities = [
         description: "L'ingegnerizzazione dei canali Telegram: metodi, strategie e strumenti per creare canali di qualità, capire l'algoritmo e fare crescere la propria presenza.",
         link: "https://t.me/s/FunzioGram/",
         glowColor: "green" as const,
-        image: "/images/funziogram.png",
+        emoji: "⚙️",
     },
     {
         name: "San Suno AI Music Festival",
@@ -27,7 +27,7 @@ const communities = [
         description: "Il festival della musica generata con l'intelligenza artificiale — con un contest annuale aperto a tutti gli artisti che vogliono esplorare il futuro del suono.",
         link: "https://t.me/SanSunoAIMusicFestival",
         glowColor: "orange" as const,
-        image: "/images/sansuno.png",
+        emoji: "🎵",
     },
 ];
 
@@ -55,14 +55,8 @@ export const CommunitiesSection = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {communities.map((community, index) => (
-                        <GlassCard key={community.name} glowColor={community.glowColor} delay={index * 0.15} className="flex flex-col group">
-                            <div className="w-16 h-16 mb-6 rounded-xl overflow-hidden bg-white/5 border border-white/10 group-hover:border-cyber-green/50 transition-colors">
-                                <img
-                                    src={community.image}
-                                    alt={community.name}
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                                />
-                            </div>
+                        <GlassCard key={community.name} glowColor={community.glowColor} delay={index * 0.15} className="flex flex-col">
+                            <div className="text-4xl mb-4">{community.emoji}</div>
                             <h3 className={`text-xl font-bold mb-1 ${community.glowColor === "orange" ? "text-bitcoin-orange" : "text-cyber-green"}`}>
                                 {community.name}
                             </h3>

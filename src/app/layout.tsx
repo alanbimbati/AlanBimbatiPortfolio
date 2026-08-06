@@ -5,8 +5,8 @@ import { Footer } from '@/components/Footer'
 import { ParticlesBackground } from '@/components/ParticlesBackground'
 
 export const metadata: Metadata = {
-    title: 'Alan Bimbati | Developer & Bitcoiner',
-    description: 'Portfolio of Alan Bimbati - Developer, Bitcoiner, Buddista. Sovranità digitale e innovazione.',
+    title: 'Alan Bimbati | Builder & Data Manager',
+    description: 'Portfolio of Alan Bimbati - Data Manager, Automation Engineer, AI enthusiast, Bitcoin advocate.',
 }
 
 export default function RootLayout({
