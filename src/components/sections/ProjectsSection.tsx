@@ -2,6 +2,7 @@
 
 import { CyberButton } from "@/components/ui/CyberButton";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type Project = {
     title: string;
@@ -98,13 +99,14 @@ export const ProjectsSection = () => {
                                         playsInline
                                         className="object-cover w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                                     />
-                                ) : (
-                                    <img
+                                ) : project.image ? (
+                                    <Image
                                         src={project.image}
                                         alt={project.title}
-                                        className="object-cover w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                        fill
+                                        className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                                     />
-                                )}
+                                ) : null}
                             </motion.div>
 
                             {/* Content */}
