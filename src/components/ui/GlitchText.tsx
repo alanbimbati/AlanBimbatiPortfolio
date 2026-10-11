@@ -12,12 +12,19 @@ export const GlitchText = ({ text, className }: GlitchTextProps) => {
     const [isGlitching, setIsGlitching] = useState(false);
 
     useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
+
         const glitchInterval = setInterval(() => {
             setIsGlitching(true);
-            setTimeout(() => setIsGlitching(false), 200);
+            timeoutId = setTimeout(() => setIsGlitching(false), 200);
         }, 3000);
 
-        return () => clearInterval(glitchInterval);
+        return () => {
+            clearInterval(glitchInterval);
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+        };
     }, []);
 
     return (
