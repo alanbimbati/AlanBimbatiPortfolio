@@ -76,8 +76,20 @@ export const KnowledgeGraphSection = () => {
 
     useEffect(() => {
         buildGraph();
-        window.addEventListener("resize", buildGraph);
-        return () => window.removeEventListener("resize", buildGraph);
+
+        let timeoutId: NodeJS.Timeout;
+        const handleResize = () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                buildGraph();
+            }, 100); // 100ms debounce
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => {
+            clearTimeout(timeoutId);
+            window.removeEventListener("resize", handleResize);
+        };
     }, [buildGraph]);
 
     return (
