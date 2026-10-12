@@ -57,7 +57,7 @@ const projects: Project[] = [
     {
         title: "Barattolo",
         description: "Il mercatino decentralizzato in satoshi su Nostr: compra e vendi oggetti pagando direttamente in Bitcoin, senza intermediari né censura.",
-        link: "https://barattolo.store/",
+        link: "https://barattolo.online/",
         glowColor: "orange" as const,
         btnText: "Visita Barattolo",
         video: "/images/Barattolo.mp4"
